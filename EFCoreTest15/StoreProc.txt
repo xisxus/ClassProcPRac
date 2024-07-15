@@ -1,0 +1,41 @@
+﻿var proc1 = @"Create Proc spSaveStudent
+            @FirstName varchar(20),
+            @LastName varchar(20),
+            @EmailAddress varchar(30)
+       
+            as
+            Begin
+            Insert into Students(FirstName,LastName,EmailAddress)
+            values
+            (@FirstName,@LastName,@EmailAddress)
+            End ";
+
+
+var proc2 = @"Create Proc spUpdateStudent
+            @Student_Id int,
+            @FirstName varchar(20),
+            @LastName varchar(20),
+            @EmailAddress varchar(30)
+          
+            as
+            Begin
+            Update Students SET FirstName=@FirstName,LastName=@LastName,
+            EmailAddress=@EmailAddress Where Student_Id=@Student_Id
+            End";
+
+
+var procDelete = @"Create Proc spDeleteStudent
+            @Student_Id int         
+            as
+            Begin
+            Delete from Students  Where Student_Id=@Student_Id
+            End";
+
+
+
+var spGetStudent = @"Create Proc SpGetStudent
+                    
+            as
+            Begin
+            Select * from Students  
+            End";
